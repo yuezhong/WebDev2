@@ -1,0 +1,31 @@
+  <table mat-table [dataSource]="cartProducts" class="mat-elevation-z5">
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let product"> {{product.name}} </td>
+      <td mat-footer-cell *matFooterCellDef> Total </td>
+    </ng-container>
+
+      <!-- Price Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let product"> {{ product.price | currency: "CNY" }} </td>
+        <td mat-footer-cell *matFooterCellDef> {{ getTotalCost() | currency: "CNY" }} </td>
+      </ng-container>
+
+        <!-- Quantity Column -->
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef> Quantity </th>
+      <td mat-cell *matCellDef="let product">
+        <button mat-mini-fab color="warn" aria-label="decrease" (click)="decreaseQty(product.id, product.quantity)">-</button>
+        {{product.quantity}}
+        <button mat-mini-fab color="primary" (click)="increaseQty(product.id, product.quantity)">+</button>
+      </td>
+      <td mat-footer-cell *matFooterCellDef><button mat-raised-button color="warn" (click)="emptyCart()">Empty Cart</button></td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+  </table>
