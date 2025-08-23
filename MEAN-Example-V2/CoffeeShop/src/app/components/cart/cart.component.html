@@ -1,0 +1,38 @@
+<div class="cs-card">
+
+<table class="cs-cart-table table table-striped">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>SubTotal</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of cart">
+      <td>{{ product.name }}</td>
+      <td>{{ product.price | currency }}</td>
+      <td>{{ product.quantity }}</td>
+      <td>{{ product.price * product.quantity | currency }}</td>
+      <td>
+        <button (click)="increaseQty(product.productID, product.quantity)" class="cs-btn-stepper cs-btn-plus">+</button>
+        &nbsp;&nbsp;
+        <button (click)="decreaseQty(product.productID, product.quantity)" class="cs-btn-stepper cs-btn-minus">-</button>
+
+      </td>
+    </tr>
+  </tbody>
+
+    <tfoot>
+      <tr>
+        <td colspan="3" class="text-end"><strong>Total:</strong></td>  
+        <td><strong>{{ getTotalCost() | currency }}</strong></td>
+        <td><button (click)="emptyCart()" class="cs-btn cs-btn-danger">Empty Cart</button></td>
+        
+      </tr>
+    </tfoot>        
+
+</table>
+</div>

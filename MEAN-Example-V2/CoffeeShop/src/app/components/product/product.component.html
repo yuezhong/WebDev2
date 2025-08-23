@@ -1,0 +1,33 @@
+<main class="cs-products-layout">
+  <aside class="cs-product-list">
+    <div
+      *ngFor="let product of products"
+      class="cs-product-item"
+      [class.active]="selectedProduct?.id === product.id"
+      (click)="selectProduct(product)"
+    >
+      {{ product.name }}
+    </div>
+  </aside>
+
+  <section class="cs-product-detail">
+    <ng-container *ngIf="selectedProduct; else errorTpl">
+      <article class="cs-card">
+        <img [src]="selectedProduct.image || 'default.jpg'" [alt]="selectedProduct.name">
+        <h2>{{ selectedProduct.name }}</h2>
+        <p>{{ selectedProduct.description }}</p>
+        <strong>${{ selectedProduct.price }} / 250 g</strong>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <label>Quantity:</label>
+          <button class="cs-btn" type="button" (click)="decrementQuantity(selectedProduct.id)">-</button>
+          <span>{{ cartQuantity }}</span>
+          <button class="cs-btn" type="button" (click)="incrementQuantity(selectedProduct.id, selectedProduct.price)">+</button>
+          <a routerLink="/cart"><button class="cs-btn cs-btn-primary" type="button">View Cart</button></a>
+        </div>
+      </article>
+    </ng-container>
+    <ng-template #errorTpl>
+      <div class="cs-card" *ngIf="error">{{ error }}</div>
+    </ng-template>
+  </section>
+</main>

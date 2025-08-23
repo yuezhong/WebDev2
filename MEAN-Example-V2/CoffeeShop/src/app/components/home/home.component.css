@@ -1,0 +1,22 @@
+.cs-hero{
+  height:100vh;
+  background:url('/assets/img/hero-coffee.jpg') center/cover no-repeat;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:#fff;
+}
+.cs-hero h1{font-size:3rem;margin-bottom:.5rem;}
+.cs-hero p{max-width:600px;margin-bottom:2rem;font-size:1.25rem;}
+.cs-hero .cs-btn{background:#fff;color:var(--brown-900);}
+
+.cs-features{
+  padding:4rem 2rem;
+  display:grid;
+  gap:2rem;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+}
+.cs-features .cs-card{text-align:center;}
+.cs-features h3{margin:.5rem 0;}
