@@ -51,9 +51,27 @@ export class ProductComponent implements OnInit {
 
   /* ---------- add / remove ---------- */
   incrementQuantity(productID: number, price: number): void {
-    this.dataService.insertCart(productID, 1, price).subscribe(() =>
-      this.refreshQuantity(productID)
-    );
+    this.dataService.getCartProductQty(productID).subscribe({
+      next: (cartRow) => {
+        if (cartRow && cartRow.quantity > 0) {
+          const newQty = cartRow.quantity + 1;
+          this.dataService.updateCartQty(productID, newQty).subscribe(() =>
+            this.refreshQuantity(productID)
+          );
+        } else {
+          // If cartRow.quantity is 0, treat as not in cart
+          this.dataService.insertCart(productID, 1, price).subscribe(() =>
+            this.refreshQuantity(productID)
+          );
+        }
+      },
+      error: () => {
+        // If not in cart, insert as new
+        this.dataService.insertCart(productID, 1, price).subscribe(() =>
+          this.refreshQuantity(productID)
+        );
+      }
+    });
   }
 
   decrementQuantity(productID: number): void {
