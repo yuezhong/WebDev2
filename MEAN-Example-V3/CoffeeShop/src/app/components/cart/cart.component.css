@@ -1,0 +1,101 @@
+.cs-cart {
+  max-width: 700px;
+  margin: 4rem auto;
+  padding: 2rem;
+}
+
+.cs-cart .cs-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cs-cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.cs-cart-table th,
+.cs-cart-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--brown-300);
+}
+
+.cs-cart-table th {
+  background: var(--brown-300);
+  color: var(--brown-900);
+}
+
+.cs-cart-table td {
+  background: #fff;
+  color: var(--brown-900);
+}
+
+.cs-cart-total-label {
+  text-align: right;
+  font-weight: bold;
+  background: var(--brown-100);
+}
+
+.cs-cart-total-value {
+  text-align: right;
+  font-weight: bold;
+  background: var(--brown-100);
+}
+
+.cs-cart-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.cs-btn-cancel {
+  background: var(--brown-500);
+}
+
+/* ---- quantity stepper buttons ---- */
+.cs-qty-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cs-btn-stepper {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* minus / decrease */
+.cs-btn-stepper.cs-btn-minus {
+  background: var(--brown-500);
+  color: #fff;
+}
+
+.cs-btn-stepper.cs-btn-minus:hover {
+  background: var(--brown-600);
+}
+
+/* plus / increase */
+.cs-btn-stepper.cs-btn-plus {
+  background: var(--brown-300);
+  color: var(--brown-900);
+}
+
+.cs-btn-stepper.cs-btn-plus:hover {
+  background: var(--brown-400);
+}
+
+/* optional: make the quantity text a bit bolder */
+.cs-qty-value {
+  font-weight: 600;
+  min-width: 1.25rem;
+  text-align: center;
+}

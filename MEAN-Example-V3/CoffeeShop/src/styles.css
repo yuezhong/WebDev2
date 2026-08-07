@@ -1,0 +1,116 @@
+/* =========================
+   COFFEE-SHOP CSS v1.0
+   ========================= */
+
+/* ---------- 0. Design Tokens ---------- */
+:root{
+  --brown-900:#3e2723;
+  --brown-700:#5d4037;
+  --brown-500:#8d6e63;
+  --brown-300:#bcaaa4;
+  --brown-100:#efebe9;
+  --accent:#c87137;
+  --radius:12px;
+  --shadow:0 6px 18px rgba(0,0,0,.15);
+  --font:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --transition: .25s ease;
+}
+
+/* ---------- 1. Global Resets ---------- */
+*{margin:0;padding:0;box-sizing:border-box;font-family:var(--font);}
+body{background:var(--brown-100);color:var(--brown-900);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+
+/* ---------- 2. Re-usable Components ---------- */
+.cs-btn{
+  display:inline-block;
+  padding:.75rem 1.5rem;
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  border-radius:var(--radius);
+  cursor:pointer;
+  transition:var(--transition);
+}
+.cs-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+
+.cs-card{
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:1.5rem;
+}
+
+/* ---------- 3. Responsive Layout Constraints ---------- */
+html, body {
+  min-width: 1024px;
+  max-width: 1920px;
+  min-height: 768px;
+  max-height: 1080px;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: auto;
+}
+
+/* Optional: Center main content if desired */
+body {
+  margin: 0 auto;
+}
+
+/* ---------- NAVIGATION ---------- */
+.cs-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--brown-900);
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+.cs-nav-logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.cs-nav-list {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+.cs-nav-list li a {
+  color: #fff;
+  font-weight: 500;
+  padding: .5rem 1rem;
+  border-radius: var(--radius);
+  transition: background var(--transition), color var(--transition);
+}
+.cs-nav-list li a:hover,
+.cs-nav-list li a:focus {
+  background: var(--accent);
+  color: #fff;
+  outline: none;
+}
+
+/* Responsive nav */
+@media (max-width: 700px) {
+  .cs-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .cs-nav-list {
+    gap: 1rem;
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* ---------- 6. Responsive tweaks ---------- */
+@media(max-width:700px){
+  .cs-products-layout{flex-direction:column;}
+  .cs-product-list{width:100%;height:200px;}
+  .cs-product-detail{padding:1rem;}
+}

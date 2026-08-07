@@ -1,0 +1,21 @@
+/* ---------- 5. CONTACT PAGE ---------- */
+.cs-contact{
+  max-width:800px;
+  margin:4rem auto;
+  padding:2rem;
+}
+.cs-contact .cs-card{display:grid;gap:1.5rem;}
+.cs-contact h2{margin-bottom:1rem;}
+.cs-contact form{
+  display:grid;
+  gap:1rem;
+}
+.cs-contact input,
+.cs-contact textarea{
+  padding:.75rem;
+  border:1px solid var(--brown-300);
+  border-radius:var(--radius);
+  resize:vertical;
+  font-size:1rem;
+}
+.cs-contact textarea{min-height:120px;}
